@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Expression.h"
 #include "Scanner.h"
 
@@ -26,6 +27,7 @@ double BinaryOperation::evaluate() const
         case '-': return lt - rt;
         case '*': return lt * rt;
         case '/': return lt / rt;
+        case '^': return std::pow(lt, rt);
     
     }
     return 0;
@@ -123,6 +125,17 @@ Expression * _get_brackets(Scanner &s) {
     return result;
 }
 
+Expression * _get_pow(Scanner &s){
+    Expression * result = _get_brackets(s);
+    if (*s == '^'){
+        char op = *s;
+        ++s;
+        Expression * secondOp = _get_pow(s);
+        result = new BinaryOperation(result, op, secondOp);
+    }
+    return result;
+}
+
 Expression * _get_unary(Scanner &s){
     Expression * result = nullptr;
     if (*s == '+' || *s == '-'){
@@ -131,7 +144,7 @@ Expression * _get_unary(Scanner &s){
         result = _get_unary(s);
         result = new UnaryOperation(op, result);
     } else{
-        result = _get_brackets(s);
+        result = _get_pow(s);
     }
     return result;
 }
