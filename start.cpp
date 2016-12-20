@@ -18,6 +18,9 @@ int main()
         std::cout << std::endl;
         std::cout << "Result: " << a->evaluate() << std::endl;
     }
+    catch (DigitErr e){
+        std::cout << e.what()<< std::endl;
+    }
     catch (CloseErr e){
         std::cout << e.what()<< std::endl;
     }
@@ -25,6 +28,9 @@ int main()
         std::cout << e.what()<< std::endl;
     }
     catch (MathError e){
+        std::cout << e.what()<< std::endl;
+    }
+    catch (SyntaxError e){
         std::cout << e.what()<< std::endl;
     }
 

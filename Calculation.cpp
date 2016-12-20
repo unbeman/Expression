@@ -19,7 +19,7 @@ Expression * _get_num(Scanner &s) {
         ++s;
         if(!isdigit(*s)){ throw DigitErr(*s);} // exception
         double step = 1.0;
-        while (isdigit(*s)) {
+        while (isdigit(*s)) { //обработка вещественных чисел
             step /= 10.0;
             res += step * (*s - '0');
             ++s;
@@ -99,6 +99,6 @@ Expression * _get_add_sub(Scanner &s)
 Expression * get_expression(const std::string& str){
     Scanner s(str);
     Expression* result = _get_add_sub(s);
-
+    if (!s.IsComplete()){ throw SyntaxError();}
     return result;
 }

@@ -7,6 +7,12 @@
 
 #include <stdexcept>
 
+class SyntaxError: public std::exception{
+public:
+    virtual ~SyntaxError() throw() {}
+    virtual const char * what() const throw(){ return "Calc - Expression syntax error";}
+};
+
 class MathError: public std::exception {
 public:
     virtual ~MathError() throw() {}
