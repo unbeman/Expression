@@ -1,5 +1,5 @@
 //
-// Created by a.kukuev on 20.12.16.
+// Created by unbeman on 20.12.16.
 //
 
 #ifndef EXPRESSION_EXEPTION_H

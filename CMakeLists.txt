@@ -7,9 +7,7 @@ set(SOURCE_FILES
     Calculation.cpp
     Expression.cpp
     Expression.h
-        Exception.cpp
-        Exception.h
-    Scanner.cpp
+    Exception.h
     Scanner.h
     start.cpp)
 

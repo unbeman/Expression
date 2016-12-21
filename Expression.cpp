@@ -2,6 +2,7 @@
 #include <cmath>
 #include "Expression.h"
 #include "Exception.h"
+
 using namespace std;
 
 Number::Number(double value): value(value){}

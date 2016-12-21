@@ -1,14 +1,15 @@
 //
-// Created by devernua on 13.12.16.
+// Created by unbeman on 13.12.16.
 //
 
 #include <iostream>
 #include "Expression.h"
 #include "Exception.h"
+
 int main()
 {
     std::string exp;
-    std::cout << "Expression:";
+    std::cout << "Expression:" << std::endl;
     std::cin >> exp;
     try {
         Expression *a = get_expression(exp);
